@@ -1,0 +1,16 @@
+version: 2
+registries:
+  git-bitbucket-org:
+    type: git
+    url: https://bitbucket.org
+    username: x-access-token.
+    password: "${{secrets.GIT_BITBUCKET_ORG_PASSWORD}}"
+
+updates:
+- package-ecosystem: nuget
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  registries:
+  - git-bitbucket-org
